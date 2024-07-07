@@ -3,7 +3,6 @@
 
 #include <ctype.h>
 #include <string.h>
-#include <studio.h>
 
 char getSoundexCode(char c) {
     c = toupper(c);
