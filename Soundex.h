@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 
-void generateSoundex(const char *name, char *soundex) {
+void generateSoundex(const char *name, char *soundex){
     char mappings[] = "01230120022455012623010202";
     memset(soundex, '0', 4);
     soundex[0] = toupper(name[0]);
