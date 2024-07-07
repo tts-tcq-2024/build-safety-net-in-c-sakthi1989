@@ -1,9 +1,9 @@
 #ifndef SOUNDEX_H
 #define SOUNDEX_H
 
-#include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
+#include <studio.h>
 
 char getSoundexCode(char c) {
     c = toupper(c);
@@ -19,24 +19,17 @@ char getSoundexCode(char c) {
 }
 
 void generateSoundex(const char *name, char *soundex) {
-    int len = strlen(name);
     memset(soundex, '0', 4);
     soundex[0] = toupper(name[0]);
     int sIndex = 1;
-    char code = 0;
     int i = 1;
-
-    while(i < len && sIndex < 4)
-    {
-        code = getSoundexCode(name[i]);
+    while(i < strlen(name) && sIndex < 4){
+        char code = getSoundexCode(name[i]);
         if (code != '0' && code != soundex[sIndex - 1]) 
         {
             soundex[sIndex++] = code;
         }
-        i++;
-    }
-
-    soundex[4] = '\0';
-}
+        i++;}
+    soundex[4] = '\0';}
 
 #endif // SOUNDEX_H
